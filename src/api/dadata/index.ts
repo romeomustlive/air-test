@@ -24,7 +24,7 @@ export async function fetchDadataAddress(
   query: string,
 ): Promise<AddressSuggestionResponse> {
   const data = await fetch(
-    `http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address`,
+    `https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export async function fetchDadataOrganization(
   query: string,
 ): Promise<OrganizationSuggestionResponse> {
   const data = await fetch(
-    `http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/party`,
+    `https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/party`,
     {
       headers: {
         'Content-Type': 'application/json',
