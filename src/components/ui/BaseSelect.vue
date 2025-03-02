@@ -38,7 +38,7 @@ const hasValue = computed(() => {
 </script>
 
 <template>
-  <Listbox v-model="model" :multiple="multiple">
+  <Listbox v-model="model" :multiple="multiple" class="w-full">
     <div class="relative">
       <ListboxButton
         class="form-field text-left w-full relative cursor-pointer"

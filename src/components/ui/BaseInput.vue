@@ -10,7 +10,7 @@ const model = defineModel<string>({ required: true })
 </script>
 
 <template>
-  <div class="flex flex-col gap-1">
+  <div class="flex flex-col gap-1 w-full">
     <div class="form-field">
       <div class="w-full">
         <label v-if="label" :for="name" class="label">

@@ -6,7 +6,7 @@ import BaseInputListbox from '@/components/ui/listbox/BaseInputListbox.vue'
 import BaseInputListboxOptions from '@/components/ui/listbox/BaseInputListboxOptions.vue'
 import BaseInputListboxOptionsItem from '@/components/ui/listbox/BaseInputListboxOptionsItem.vue'
 
-import { useFetchOrganization } from '@/composables/use-fetch-organization'
+import { useFetchOrganizations } from '@/composables/use-fetch-organization'
 
 import type { OrganizationSuggestion } from '@/api/dadata'
 
@@ -16,7 +16,7 @@ defineProps<{
   error?: string
 }>()
 
-const { result, fetchOrganizations } = useFetchOrganization()
+const { result, fetchOrganizations } = useFetchOrganizations()
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: OrganizationSuggestion): void
@@ -39,7 +39,7 @@ watch(result, (newValue) => {
 </script>
 
 <template>
-  <BaseInputListbox>
+  <BaseInputListbox class="w-full">
     <BaseInput
       :name="name"
       :model-value="modelValue"

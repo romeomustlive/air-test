@@ -122,7 +122,12 @@ const onSubmit = handleSubmit(async (values) => {
         max-label="До"
         :error="errors.dateRange"
       />
-      <BaseButton rounded :disabled="isDisabled || isLoading" @click="onSubmit">
+      <BaseButton
+        rounded
+        :disabled="isDisabled || isLoading"
+        class="mt-5"
+        @click="onSubmit"
+      >
         Отправить
       </BaseButton>
     </BaseForm>

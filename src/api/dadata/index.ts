@@ -38,7 +38,7 @@ export async function fetchDadataAddress(
   return await data.json()
 }
 
-export async function fetchDadataOrganization(
+export async function fetchDadataOrganizations(
   query: string,
 ): Promise<OrganizationSuggestionResponse> {
   const data = await fetch(

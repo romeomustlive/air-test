@@ -43,7 +43,7 @@ watch(items, (newValue) => {
 </script>
 
 <template>
-  <BaseInputListbox>
+  <BaseInputListbox class="w-full">
     <BaseInput
       :name="name"
       :placeholder="label"

@@ -2,6 +2,7 @@
 import clsx from 'clsx'
 
 defineProps<{
+  block?: boolean
   rounded?: boolean
   disabled?: boolean
 }>()
@@ -11,8 +12,9 @@ defineProps<{
   <button
     :class="
       clsx(
-        rounded ? 'rounded-2xl' : 'rounded-md',
-        'bg-primary text-white px-4 py-2  cursor-pointer disabled:opacity-50',
+        rounded ? 'rounded-4xl' : 'rounded-md',
+        block ? 'w-full' : '',
+        'bg-primary text-white px-10 py-3 cursor-pointer disabled:opacity-50',
       )
     "
     :disabled="disabled"

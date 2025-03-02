@@ -5,7 +5,10 @@ defineEmits<{
 </script>
 
 <template>
-  <form class="flex flex-col gap-5" @submit.prevent="$emit('submit')">
+  <form
+    class="flex flex-col items-center gap-5"
+    @submit.prevent="$emit('submit')"
+  >
     <slot />
   </form>
 </template>
