@@ -1,5 +1,6 @@
-import { residentRequestSchema } from '@/composables/use-resident-request'
 import { z } from 'zod'
+
+import { residentRequestSchema } from '@/composables/use-resident-request'
 
 export function createResidentRequestMock(
   data: z.infer<typeof residentRequestSchema>,

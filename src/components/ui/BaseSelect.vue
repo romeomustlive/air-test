@@ -2,8 +2,8 @@
 import {
   Listbox,
   ListboxButton,
-  ListboxOptions,
   ListboxOption,
+  ListboxOptions,
 } from '@headlessui/vue'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/20/solid'
 import { computed } from 'vue'

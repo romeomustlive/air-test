@@ -1,9 +1,9 @@
-import './assets/main.css'
+import { createApp } from 'vue'
+import { createVfm } from 'vue-final-modal'
 import 'vue-final-modal/style.css'
 
-import { createApp } from 'vue'
 import App from './App.vue'
-import { createVfm } from 'vue-final-modal'
+import './assets/main.css'
 
 const vfm = createVfm()
 

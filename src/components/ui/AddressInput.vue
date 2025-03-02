@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { useFetchAddress } from '@/composables/use-fetch-address'
 import { computed, ref, watch } from 'vue'
+
 import BaseInput from '@/components/ui/BaseInput.vue'
+import BaseInputListbox from '@/components/ui/listbox/BaseInputListbox.vue'
 import BaseListbox from '@/components/ui/listbox/BaseInputListboxOptions.vue'
 import BaseListboxItem from '@/components/ui/listbox/BaseInputListboxOptionsItem.vue'
-import BaseInputListbox from '@/components/ui/listbox/BaseInputListbox.vue'
+
+import { useFetchAddress } from '@/composables/use-fetch-address'
 
 defineProps<{
+  name: string
   label: string
   modelValue: string
   error?: string
@@ -42,6 +45,7 @@ watch(items, (newValue) => {
 <template>
   <BaseInputListbox>
     <BaseInput
+      :name="name"
       :placeholder="label"
       :model-value="modelValue"
       :error="error"

@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import type { OrganizationSuggestion } from '@/api/dadata'
+import { ref, watch } from 'vue'
+
 import BaseInput from '@/components/ui/BaseInput.vue'
 import BaseInputListbox from '@/components/ui/listbox/BaseInputListbox.vue'
 import BaseInputListboxOptions from '@/components/ui/listbox/BaseInputListboxOptions.vue'
 import BaseInputListboxOptionsItem from '@/components/ui/listbox/BaseInputListboxOptionsItem.vue'
+
 import { useFetchOrganization } from '@/composables/use-fetch-organization'
-import { ref, watch } from 'vue'
+
+import type { OrganizationSuggestion } from '@/api/dadata'
 
 defineProps<{
   name: string

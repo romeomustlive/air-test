@@ -1,8 +1,10 @@
 import { ref } from 'vue'
+
 import {
-  fetchDadataOrganization,
   type OrganizationSuggestion,
+  fetchDadataOrganization,
 } from '@/api/dadata'
+
 import { debounce } from '@/utils/debounce'
 
 export function useFetchOrganization() {

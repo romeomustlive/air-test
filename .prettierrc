@@ -5,5 +5,18 @@
   "singleQuote": true,
   "trailingComma": "all",
   "arrowParens": "always",
-  "semi": false
+  "semi": false,
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "^vue/(.*)$",
+    "^@/components/(.*)$",
+    "^@/composables/(.*)$",
+    "^@/api/(.*)$",
+    "^@/utils/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

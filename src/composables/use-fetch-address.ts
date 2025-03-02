@@ -1,5 +1,7 @@
 import { ref } from 'vue'
-import { fetchDadataAddress, type AddressSuggestion } from '@/api/dadata'
+
+import { type AddressSuggestion, fetchDadataAddress } from '@/api/dadata'
+
 import { debounce } from '@/utils/debounce'
 
 export function useFetchAddress() {

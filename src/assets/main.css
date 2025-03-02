@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import "./base.css";
+@import './base.css';
 
 @theme static {
-  --color-primary: #174B7C;
-  --text-primary: #1A263D;
+  --color-primary: #174b7c;
+  --text-primary: #1a263d;
 }

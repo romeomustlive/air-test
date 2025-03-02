@@ -1,20 +1,23 @@
 <script setup lang="ts">
-import BaseInputMask from '@/components/ui/BaseInputMask.vue'
-import BaseModal from '@/components/ui/BaseModal.vue'
-import BaseForm from '@/components/ui/BaseForm.vue'
-import BaseNumberRange from '@/components/ui/BaseNumberRange.vue'
-import BaseSelect from '@/components/ui/BaseSelect.vue'
-import BaseDateRange from '@/components/ui/BaseDateRange.vue'
-import AddressInput from '@/components/ui/AddressInput.vue'
-import BaseButton from '@/components/ui/BaseButton.vue'
-import OrganizationInput from '@/components/ui/OrganizationInput.vue'
-import type { OrganizationSuggestion } from '@/api/dadata'
-import { residentRequestSchema } from '@/composables/use-resident-request'
-import { useResidentRequest } from '@/composables/use-resident-request'
-import { z } from 'zod'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
+import { z } from 'zod'
+
+import AddressInput from '@/components/ui/AddressInput.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
+import BaseDateRange from '@/components/ui/BaseDateRange.vue'
+import BaseForm from '@/components/ui/BaseForm.vue'
+import BaseInputMask from '@/components/ui/BaseInputMask.vue'
+import BaseModal from '@/components/ui/BaseModal.vue'
+import BaseNumberRange from '@/components/ui/BaseNumberRange.vue'
+import BaseSelect from '@/components/ui/BaseSelect.vue'
+import OrganizationInput from '@/components/ui/OrganizationInput.vue'
+
+import { residentRequestSchema } from '@/composables/use-resident-request'
+import { useResidentRequest } from '@/composables/use-resident-request'
+
+import type { OrganizationSuggestion } from '@/api/dadata'
 
 const emit = defineEmits<{
   (e: 'close'): void
@@ -95,7 +98,12 @@ const onSubmit = handleSubmit(async (values) => {
         :items="types"
         :error="errors.type"
       />
-      <AddressInput v-model="address" label="Адрес" :error="errors.address" />
+      <AddressInput
+        v-model="address"
+        name="address"
+        label="Адрес"
+        :error="errors.address"
+      />
       <BaseNumberRange
         v-model="areaRange"
         name="areaRange"

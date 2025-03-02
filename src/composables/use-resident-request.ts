@@ -1,6 +1,7 @@
-import { createResidentRequestMock } from '@/api/mocks'
-import { z } from 'zod'
 import { ref } from 'vue'
+import { z } from 'zod'
+
+import { createResidentRequestMock } from '@/api/mocks'
 
 export const residentRequestSchema = z.object({
   organizationName: z.string().min(1, 'Обязательное поле'),
