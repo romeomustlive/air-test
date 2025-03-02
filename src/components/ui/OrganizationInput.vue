@@ -1,0 +1,59 @@
+<script setup lang="ts">
+import type { OrganizationSuggestion } from '@/api/dadata'
+import BaseInput from '@/components/ui/BaseInput.vue'
+import BaseInputListbox from '@/components/ui/listbox/BaseInputListbox.vue'
+import BaseInputListboxOptions from '@/components/ui/listbox/BaseInputListboxOptions.vue'
+import BaseInputListboxOptionsItem from '@/components/ui/listbox/BaseInputListboxOptionsItem.vue'
+import { useFetchOrganization } from '@/composables/use-fetch-organization'
+import { ref, watch } from 'vue'
+
+defineProps<{
+  name: string
+  modelValue: string
+  error?: string
+}>()
+
+const { result, fetchOrganizations } = useFetchOrganization()
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: OrganizationSuggestion): void
+}>()
+
+const isOpenOptions = ref(false)
+
+function handleClickItem(item: OrganizationSuggestion) {
+  emit('update:modelValue', item)
+  isOpenOptions.value = false
+}
+
+watch(result, (newValue) => {
+  if (newValue.length) {
+    isOpenOptions.value = true
+  } else {
+    isOpenOptions.value = false
+  }
+})
+</script>
+
+<template>
+  <BaseInputListbox>
+    <BaseInput
+      :name="name"
+      :model-value="modelValue"
+      label="Наименование организации/ИП"
+      :error="error"
+      @update:model-value="fetchOrganizations"
+    />
+    <BaseInputListboxOptions v-if="isOpenOptions">
+      <BaseInputListboxOptionsItem
+        v-for="item in result"
+        :key="item.value"
+        @click="handleClickItem(item)"
+      >
+        {{ item.value }}
+      </BaseInputListboxOptionsItem>
+    </BaseInputListboxOptions>
+  </BaseInputListbox>
+</template>
+
+<style scoped></style>
