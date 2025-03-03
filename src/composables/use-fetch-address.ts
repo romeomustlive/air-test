@@ -1,11 +1,11 @@
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 
 import { type AddressSuggestion, fetchDadataAddress } from '@/api/dadata'
 
 import { debounce } from '@/utils/debounce'
 
 export function useFetchAddress() {
-  const result = ref<AddressSuggestion[]>([])
+  const result = shallowRef<AddressSuggestion[]>([])
   const isLoading = ref(false)
 
   const fetchAddress = debounce(async (value: string) => {

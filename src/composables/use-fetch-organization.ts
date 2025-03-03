@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 
 import {
   type OrganizationSuggestion,
@@ -8,7 +8,7 @@ import {
 import { debounce } from '@/utils/debounce'
 
 export function useFetchOrganizations() {
-  const result = ref<OrganizationSuggestion[]>([])
+  const result = shallowRef<OrganizationSuggestion[]>([])
   const isLoading = ref(false)
 
   const fetchOrganizations = debounce(async (value: string) => {

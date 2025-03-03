@@ -30,15 +30,27 @@ export const residentRequestSchema = z.object({
 
 export function useResidentRequest() {
   const isLoading = ref(false)
+  const error = ref<string | null>(null)
 
   async function sendResidentRequest(
     data: z.infer<typeof residentRequestSchema>,
   ) {
-    isLoading.value = true
-    await createResidentRequestMock(data)
-    isLoading.value = false
+    try {
+      isLoading.value = true
+      await createResidentRequestMock(data)
+      isLoading.value = false
+    } catch (e) {
+      if (e instanceof Error) {
+        error.value = 'Произошла ошибка при отправке запроса:' + e.message
+        return
+      }
+      error.value = 'Произошла ошибка при отправке запроса'
+    } finally {
+      isLoading.value = false
+    }
   }
   return {
+    error,
     isLoading,
     sendResidentRequest,
   }

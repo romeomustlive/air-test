@@ -5,6 +5,7 @@ import { computed, ref } from 'vue'
 import { z } from 'zod'
 
 import AddressInput from '@/components/ui/AddressInput.vue'
+import BaseAlert from '@/components/ui/BaseAlert.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseDateRange from '@/components/ui/BaseDateRange.vue'
 import BaseForm from '@/components/ui/BaseForm.vue'
@@ -31,7 +32,7 @@ const types = ref([
   'Другие',
 ])
 
-const { isLoading, sendResidentRequest } = useResidentRequest()
+const { isLoading, sendResidentRequest, error } = useResidentRequest()
 
 const { errors, defineField, handleSubmit, setFieldValue } = useForm<
   z.infer<typeof residentRequestSchema>
@@ -71,12 +72,14 @@ function updateOrganizationName(value: OrganizationSuggestion) {
 
 const onSubmit = handleSubmit(async (values) => {
   await sendResidentRequest(values)
+  if (error.value) return
   emit('close')
 })
 </script>
 
 <template>
   <BaseModal title="Заполните заявку, чтобы стать резидентом">
+    <BaseAlert v-if="error" :message="error" class="mb-5" />
     <BaseForm>
       <OrganizationInput
         :model-value="organizationName"
